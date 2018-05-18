@@ -1,0 +1,47 @@
+<link rel="import" href="https://polygit.org/polymer+polymer+v2.0.0-rc.3/webcomponentsjs+webcomponents+v1.0.0-rc.6/components/iron-ajax/iron-ajax.html">
+<link rel="import" href="anything-finder.html">
+
+<dom-module id="app-shell">
+
+  <template>
+    <style>
+      /*add component styles here*/
+      :host {
+        display: block;
+        border: solid 1px green;
+        padding: 1rem;
+      }
+      
+      button {
+        margin: 1rem;
+      }
+    </style>
+    
+    <button on-click="sayHello"> clícame para saludar </button>
+    
+    <iron-ajax></iron-ajax>
+
+    <anything-finder></anything-finder>
+    
+  </template>
+
+  <script>
+    class AppShell extends Polymer.Element {
+      
+      static get is() { return "app-shell"; }
+      
+      static get properties() {
+        return {
+          /*add your component properties here !!!*/
+        }
+      }
+
+      sayHello() {
+        console.log('hola!');
+        alert('hoooola!');
+      }
+    }
+    customElements.define(AppShell.is, AppShell);
+  </script>
+
+</dom-module>

@@ -1,0 +1,20 @@
+{
+  "name": "anything-finder",
+  "authors": [
+    "AGUILAR TIRADO Eduardo <eduardo.aguilar@soprasteria.com>"
+  ],
+  "description": "a component to search from a given collection",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-ajax": "PolymerElements/iron-ajax#^2.1.3"
+  }
+}
