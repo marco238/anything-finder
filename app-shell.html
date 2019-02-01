@@ -1,11 +1,11 @@
-<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="anything-finder.html">
+<link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./anything-finder.html">
 
 <dom-module id="app-shell">
 
   <template>
     <style>
-      /*add component styles here*/
       :host {
         display: block;
         border: solid 1px green;
@@ -16,8 +16,6 @@
         margin: 1rem;
       }
     </style>
-    
-    <button on-click="sayHello"> clícame para saludar </button>
     
     <iron-ajax></iron-ajax>
 
@@ -36,10 +34,6 @@
         }
       }
 
-      sayHello() {
-        console.log('hola!');
-        alert('hoooola!');
-      }
     }
     customElements.define(AppShell.is, AppShell);
   </script>

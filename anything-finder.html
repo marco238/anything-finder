@@ -1,36 +1,26 @@
-<link rel="import" href="bower_components/iron-input/iron-input.html">
-<link rel="import" href="bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/swc-input-submit/swc-input-submit.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 
 <dom-module id="anything-finder">
 
   <template>
     <style>
-      /*add component styles here*/
       :host {
         display: block;
         border: solid 1px red;
         padding: 1rem;
       }
-      
-      iron-list {
-        border: solid 1px black;
-        margin-top: 1rem;
-      }
+    
     </style>
     
     <p>Bienvenido al buscador de [[topic]]</p>
     
-    <iron-input bind-value="[[topic]]">
-      <input placeholder="[[topic]]" is="iron-input">
-    </iron-input>
-    
-    <button on-click="doSearch">buscar</button>
-    
-    <iron-list items="[[list]]" as="element">
-      <template>
-        <span>[[element.name]] - [[element.age]]</span>
-      </template>
-    </iron-list>
+    <swc-input-submit></swc-input-submit>
+
+    <div>
+      <p>Hola soy el sloterino!!!</p>
+      <slot></slot>
+    </div>
     
   </template>
 
@@ -49,20 +39,8 @@
           topic: {
             type: String,
             value: 'peliculas'
-          },
-          list: {
-            type: Array,
-            value: () => [
-              { name: 'Eduardo', age: 27 },
-              { name: 'Alfonso', age: 35 }
-            ]
           }
         }
-      }
-      
-      doSearch() {
-        alert('hacer búsqueda');
-        // const url = `https://www.omdbapi.com/?s=${filmName}&plot=full&apikey=e477ed6a`;
       }
       
     }
