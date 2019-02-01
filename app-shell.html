@@ -1,6 +1,8 @@
 <link rel="import" href="./bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./bower_components/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="./anything-finder.html">
+<link rel="import" href="./film-item.html">
 
 <dom-module id="app-shell">
 
@@ -11,15 +13,27 @@
         border: solid 1px green;
         padding: 1rem;
       }
-      
-      button {
-        margin: 1rem;
-      }
     </style>
     
-    <iron-ajax></iron-ajax>
+    <p>Cuadrado verde --> app shell</p>
 
-    <anything-finder></anything-finder>
+    <iron-ajax handle-as="json"></iron-ajax>
+
+    <h1>Buscador de pelis</h1>
+
+    <anything-finder topic="pelis" event-name="onValueSubmittedFilms">
+      <template is="dom-repeat" items="[[films]]" as="film">
+        <film-item film="[[film]]"></film-item>
+      </template>
+    </anything-finder>
+
+    <h1>Buscador de Pokemons</h1>
+
+    <anything-finder topic="Pokemons" event-name="onValueSubmittedPokemons">
+      <template is="dom-repeat" items="[[pokemons]]" as="pokemon">
+        <p>[[pokemon.stat.name]]: [[pokemon.base_stat]]</p>
+      </template>
+    </anything-finder>
     
   </template>
 
@@ -30,8 +44,48 @@
       
       static get properties() {
         return {
-          /*add your component properties here !!!*/
+          url: {
+            type: String,
+            value: null
+          },
+          films: {
+            type: Array,
+            value: () => []
+          },
+          pokemons: {
+            type: Array,
+            value: () => []
+          }
         }
+      }
+
+      ready() {
+        super.ready();
+        this.addEventListener('onValueSubmittedFilms', this.searchSomething.bind(this, 'films'));
+        this.addEventListener('onValueSubmittedPokemons', this.searchSomething.bind(this, 'pokemons'));
+      }
+
+      searchSomething(bindParam, event) {
+        let whatToSearch = event.detail.value;
+        let ironAjax = this.shadowRoot.querySelector('iron-ajax');
+
+        let map = {
+          films: {
+            url: 'https://www.omdbapi.com/?s=searchKey&plot=full&apikey=e477ed6a',
+            property: 'films'
+          },
+          pokemons: {
+            url: 'https://pokeapi.co/api/v2/pokemon/searchKey',
+            property: 'pokemons'
+          }
+        }
+        let target = map[bindParam];
+
+        ironAjax.url = target.url.replace('searchKey', whatToSearch);
+        ironAjax.generateRequest().completes
+          .then(request => {
+            this[target.property] = request.response.Search || request.response.stats;
+          });
       }
 
     }

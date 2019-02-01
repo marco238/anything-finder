@@ -13,36 +13,33 @@
     
     </style>
     
-    <p>Bienvenido al buscador de [[topic]]</p>
-    
-    <swc-input-submit></swc-input-submit>
+    <p>Cuadrado rojo --> anything-finder</p>
+    <p>Buscador de [[topic]]</p>
+
+    <swc-input-submit event-name="[[eventName]]"></swc-input-submit>
 
     <div>
-      <p>Hola soy el sloterino!!!</p>
       <slot></slot>
     </div>
     
   </template>
 
   <script>
-  
-    // TO DO: replace iron-input && button to paper-input && paper-button
-  
+
     class AnythingFinder extends Polymer.Element {
       
       static get is() { return "anything-finder"; }
-      
+
       static get properties() {
         return {
-          /*add your component properties here !!!*/
-          
           topic: {
             type: String,
             value: 'peliculas'
-          }
+          },
+          eventName: String
         }
       }
-      
+
     }
     customElements.define(AnythingFinder.is, AnythingFinder);
   </script>
