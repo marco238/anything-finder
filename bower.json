@@ -14,7 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "iron-ajax": "PolymerElements/iron-ajax#^2.1.3",
-    "swc-input-submit": "git@innersource.soprasteria.com:smartup/frontend/core-components/swc-input-submit.git#develop"
+    "iron-ajax": "PolymerElements/iron-ajax#^2.1.3"
   }
 }
