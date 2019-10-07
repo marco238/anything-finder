@@ -34,3 +34,5 @@ export class AnythingFinder extends LitElement {
     `;
   }
 }
+
+window.customElements.define('anything-finder', AnythingFinder);
