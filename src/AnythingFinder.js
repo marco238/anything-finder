@@ -8,6 +8,20 @@ export class AnythingFinder extends LitElement {
       :host {
         display: block;
         padding: 25px;
+        --film-width-min: 100px;
+        --film-width-max: 320px;
+      }
+
+      section.films {
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--film-width-min), var(--film-width-max)));
+        grid-gap: 1rem;
+      }
+
+      input-search {
+        max-width: 600px;
+        margin: 0 auto;
       }
     `;
   }

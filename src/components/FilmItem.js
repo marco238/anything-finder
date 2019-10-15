@@ -6,7 +6,6 @@ export class FilmItem extends LitElement {
       :host {
         display: block;
         width: 100%;
-        max-width: 320px;
         min-height: 400px;
         position: relative;
       }
@@ -17,7 +16,7 @@ export class FilmItem extends LitElement {
 
       .film-info {
         position: absolute;
-        bottom: 1rem;
+        top: 1rem;
         width: 100%;
         color: white;
         background-color: rgba(255, 0, 0, 0.8);
