@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit-element';
 
-export class FilmItem extends LitElement {
+class FilmItem extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -52,4 +52,4 @@ export class FilmItem extends LitElement {
 
 }
 
-window.customElements.define('film-item', FilmItem);
+customElements.define('film-item', FilmItem);

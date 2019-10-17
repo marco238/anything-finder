@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit-element';
 
-export class InputSearch extends LitElement {
+class InputSearch extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -14,6 +14,7 @@ export class InputSearch extends LitElement {
       }
       button {
         margin-left: 1rem;
+        padding: 0 20px;
       }
     `;
   }
@@ -32,7 +33,7 @@ export class InputSearch extends LitElement {
   constructor() {
     super();
     this.value = '';
-    this.buttonLabel = 'buscar';
+    this.buttonLabel = 'Find';
     this.regExp = new RegExp(/([^\s])/); //empty value
     this.isValidValue = false;
     this.eventName = 'search-item';
@@ -69,4 +70,4 @@ export class InputSearch extends LitElement {
 
 }
 
-window.customElements.define('input-search', InputSearch);
+customElements.define('input-search', InputSearch);

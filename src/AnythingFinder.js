@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit-element';
 import "./components/InputSearch.js";
 import "./components/FilmItem.js";
 
-export class AnythingFinder extends LitElement {
+class AnythingFinder extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -36,7 +36,7 @@ export class AnythingFinder extends LitElement {
   constructor() {
     super();
     this.title = 'Hey there';
-    this.placeholder = 'Introduce película';
+    this.placeholder = 'Type movie`s name...';
     this.films = [];
     this.addEventListener('search-item', this.searchFilm);
   }
@@ -69,4 +69,4 @@ export class AnythingFinder extends LitElement {
   }
 }
 
-window.customElements.define('anything-finder', AnythingFinder);
+customElements.define('anything-finder', AnythingFinder);
