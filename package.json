@@ -14,8 +14,7 @@
     "test:update-snapshots": "karma start --update-snapshots",
     "test:prune-snapshots": "karma start --prune-snapshots",
     "test:compatibility": "karma start --compatibility all --coverage",
-    "test:compatibility:watch": "karma start --compatibility all --auto-watch=true --single-run=false",
-    "test:bs": "karma start karma.bs.config.js --compatibility all --coverage"
+    "test:compatibility:watch": "karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
     "lit-html": "^1.0.0",
@@ -25,7 +24,6 @@
     "es-dev-server": "^1.5.0",
     "@open-wc/testing-karma": "^3.0.0",
     "webpack-merge": "^4.1.5",
-    "@open-wc/testing-karma-bs": "^1.0.0",
     "@open-wc/testing": "^2.0.0"
   }
 }
