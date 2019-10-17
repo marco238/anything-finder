@@ -52,7 +52,6 @@ class AnythingFinder extends LitElement {
   }
 
   searchFilm(event) {
-    console.log('buscar ' + event.detail.value);
     const film = event.detail.value;
     const url = `https://www.omdbapi.com/?s=${film}&plot=full&apikey=e477ed6a`;
     fetch(url)
