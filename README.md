@@ -1,37 +1,18 @@
-# \<anything-finder>
+# Anything-Finder
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This webcomponents follow the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
-## Installation
+## Install dependencies
 ```bash
-npm i anything-finder
+npm i
 ```
 
-## Usage
-```html
-<script type="module">
-  import 'anything-finder/anything-finder.js';
-</script>
-
-<anything-finder></anything-finder>
+## Serve project
+```bash
+npm start
 ```
 
-## Testing using karma (if applied by author)
+## Testing using karma
 ```bash
 npm run test
-```
-
-## Testing using karma via browserstack (if applied by author)
-```bash
-npm run test:bs
-```
-
-## Demoing using storybook (if applied by author)
-```bash
-npm run storybook
-```
-
-## Linting (if applied by author)
-```bash
-npm run lint
 ```
