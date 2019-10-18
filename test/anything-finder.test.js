@@ -3,40 +3,57 @@ import { html, fixture, expect } from '@open-wc/testing';
 import '../src/AnythingFinder.js';
 
 describe('AnythingFinder', () => {
-  it('has a default title "Hey there" and counter 5', async () => {
+  it('Component has X properties', async () => {
+    const el = await fixture(html`
+      <anything-finder></anything-finder>
+    `);
+
+    expect(el.title).to.be.a('string');
+    expect(el.placeholder).to.be.a('string');
+    expect(el.films).to.be.an('array');
+  });
+  
+  it('Properties have default values', async () => {
     const el = await fixture(html`
       <anything-finder></anything-finder>
     `);
 
     expect(el.title).to.equal('Hey there');
-    expect(el.counter).to.equal(5);
+    expect(el.placeholder).to.equal('Type movie`s name...');
+    expect(el.films.length).to.equal(0);
   });
 
-  it('shows initially the text "hey there Nr. 5!" and an "increment" button', async () => {
+  it('Can override properties via attributes', async () => {
     const el = await fixture(html`
-      <anything-finder></anything-finder>
-    `);
-
-    expect(el).shadowDom.to.equal(`
-      <h2>Hey there Nr. 5!</h2>
-      <button>increment</button>
-    `);
-  });
-
-  it('increases the counter on button click', async () => {
-    const el = await fixture(html`
-      <anything-finder></anything-finder>
-    `);
-    el.shadowRoot.querySelector('button').click();
-
-    expect(el.counter).to.equal(6);
-  });
-
-  it('can override the title via attribute', async () => {
-    const el = await fixture(html`
-      <anything-finder title="attribute title"></anything-finder>
+      <anything-finder
+        title="attribute title"
+        placeholder="attribute placeholder">
+      </anything-finder>
     `);
 
     expect(el.title).to.equal('attribute title');
+    expect(el.placeholder).to.equal('attribute placeholder');
+  });
+
+  it('updateFilms() method', async () => {
+    const testFilms = {
+      Search: ['Ironman', 'Robocop']
+    };
+
+    const el = await fixture(html`
+      <anything-finder></anything-finder>
+    `);
+
+    el.updateFilms(testFilms);
+    expect(el.films).to.equal(testFilms.Search);
+  });
+
+  it('drawFilm() method', async () => {
+    const el = await fixture(html`
+      <anything-finder></anything-finder>
+    `);
+
+    expect(el.drawFilm()).to.be.an('object');
+    expect(el.drawFilm().type).to.equal('html');
   });
 });

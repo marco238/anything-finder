@@ -29,6 +29,7 @@ class AnythingFinder extends LitElement {
   static get properties() {
     return {
       title: { type: String },
+      placeholder: { type: String },
       films: { type: Array }
     };
   }
