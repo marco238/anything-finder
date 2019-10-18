@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
+import { repeat } from 'lit-html/directives/repeat';
 import "./components/InputSearch.js";
 import "./components/FilmItem.js";
 
@@ -39,7 +40,10 @@ class AnythingFinder extends LitElement {
     this.title = 'Hey there';
     this.placeholder = 'Type movie`s name...';
     this.films = [];
-    this.addEventListener('search-item', this.searchFilm);
+    this.addEventListener('search-item', async (event) => {
+      const response = await this.searchFilms(event.detail.value);
+      this.updateFilms(response);
+    });
   }
 
   render() {
@@ -47,17 +51,19 @@ class AnythingFinder extends LitElement {
       <h2>${this.title}</h2>
       <input-search placeholder=${this.placeholder}></input-search>
       <section class="films">
-        ${this.films.map(this.drawFilm)}
+        <!-- first alternative. 
+          ${this.films.map(this.drawFilm)}
+          The following is better and performant.
+        -->
+        ${repeat(this.films, movie => movie.Title, this.drawFilm)}
       </section>
     `;
   }
 
-  searchFilm(event) {
-    const film = event.detail.value;
+  searchFilms(film) {
     const url = `https://www.omdbapi.com/?s=${film}&plot=full&apikey=e477ed6a`;
-    fetch(url)
-      .then(res => res.json())
-      .then(this.updateFilms.bind(this));
+    return fetch(url)
+      .then(res => res.json());
   }
 
   updateFilms(films) {
