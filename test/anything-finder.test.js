@@ -35,6 +35,35 @@ describe('AnythingFinder', () => {
     expect(el.placeholder).to.equal('attribute placeholder');
   });
 
+  it('searchAndUpdate() method', async () => {
+    const event = {
+      detail: {
+        value: 'Hulk'
+      }
+    };
+
+    const el = await fixture(html`
+      <anything-finder></anything-finder>
+    `);
+
+    try {
+      await el.searchAndUpdate(event);
+      expect(el.films.length).to.be.above(0);
+    } catch(err) {
+      console.log(err);
+    }
+  });
+
+  it('searchFilms() method', async () => {
+    const filmToFind = 'Hulk';
+
+    const el = await fixture(html`
+      <anything-finder></anything-finder>
+    `);
+
+    expect(el.searchFilms(filmToFind)).to.be.an('promise');
+  });
+  
   it('updateFilms() method', async () => {
     const testFilms = {
       Search: ['Ironman', 'Robocop']

@@ -40,10 +40,16 @@ class AnythingFinder extends LitElement {
     this.title = 'Hey there';
     this.placeholder = 'Type movie`s name...';
     this.films = [];
-    this.addEventListener('search-item', async (event) => {
-      const response = await this.searchFilms(event.detail.value);
-      this.updateFilms(response);
-    });
+  }
+  
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('search-item', this.searchAndUpdate);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener('search-item', this.searchAndUpdate);
   }
 
   render() {
@@ -58,6 +64,11 @@ class AnythingFinder extends LitElement {
         ${repeat(this.films, movie => movie.Title, this.drawFilm)}
       </section>
     `;
+  }
+
+  async searchAndUpdate(event) {
+    const response = await this.searchFilms(event.detail.value);
+    this.updateFilms(response);
   }
 
   searchFilms(film) {
