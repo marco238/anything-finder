@@ -11,15 +11,17 @@ class FilmItem extends LitElement {
       }
 
       img {
+        border-radius: 4px;
         width: 100%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.32);
       }
 
       .film-info {
         position: absolute;
         top: 1rem;
         width: 100%;
-        color: white;
-        background-color: rgba(255, 0, 0, 0.8);
+        color: #fff;
+        background: linear-gradient(to right top, #7db1fe, #87a6ff, #9d99ff, #ba87ff, #d96ffc);
         text-align: center;
       }
     `;

@@ -13,6 +13,10 @@ class AnythingFinder extends LitElement {
         --film-width-max: 320px;
       }
 
+      h2 {
+        text-align: center;
+      }
+
       section.films {
         justify-content: center;
         display: grid;
@@ -22,7 +26,7 @@ class AnythingFinder extends LitElement {
 
       input-search {
         max-width: 600px;
-        margin: 0 auto;
+        margin: 0 auto 30px;
       }
     `;
   }

@@ -11,10 +11,30 @@ class InputSearch extends LitElement {
       }
       input {
         flex-grow: 1;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        padding-left: 10px;
+      }
+      ::placeholder {
+        color: rgba(0, 0, 0, 0.3);
       }
       button {
+        width: 60px;
         margin-left: 1rem;
         padding: 0 20px;
+        border: none;
+        border-radius: 4px;
+        background: linear-gradient(to right top, #7db1fe, #87a6ff, #9d99ff, #ba87ff, #d96ffc);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        color: #fff;
+        cursor: pointer;
+      }
+      button:disabled {
+        background: #fff;
+        color: rgba(0, 0, 0, 0.3);
+        box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        cursor: auto;
       }
     `;
   }
