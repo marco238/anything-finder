@@ -77,6 +77,7 @@ class AnythingFinder extends LitElement {
 
   searchFilms(film) {
     const url = `https://www.omdbapi.com/?s=${film}&plot=full&apikey=e477ed6a`;
+    // eslint-disable-next-line no-undef
     return fetch(url)
       .then(res => res.json());
   }
@@ -90,4 +91,5 @@ class AnythingFinder extends LitElement {
   }
 }
 
+// eslint-disable-next-line no-undef
 customElements.define('anything-finder', AnythingFinder);

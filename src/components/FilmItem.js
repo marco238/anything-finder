@@ -50,4 +50,5 @@ class FilmItem extends LitElement {
 
 }
 
+// eslint-disable-next-line no-undef
 customElements.define('film-item', FilmItem);

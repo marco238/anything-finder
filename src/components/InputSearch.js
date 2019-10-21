@@ -76,6 +76,7 @@ class InputSearch extends LitElement {
   }
 
   sendValue() {
+    // eslint-disable-next-line no-undef
     const event = new CustomEvent(this.eventName, {
       detail: {
         value: this.value
@@ -91,4 +92,5 @@ class InputSearch extends LitElement {
 
 }
 
+// eslint-disable-next-line no-undef
 customElements.define('input-search', InputSearch);
