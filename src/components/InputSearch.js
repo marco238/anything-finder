@@ -23,7 +23,7 @@ class InputSearch extends LitElement {
     return {
       value: { type: String },
       placeholder: { type: String },
-      regExp: { type: String },
+      regExp: { type: Object },
       buttonLabel: { type: String },
       isValidValue: { type: Boolean },
       eventName: { type: String }
@@ -33,6 +33,7 @@ class InputSearch extends LitElement {
   constructor() {
     super();
     this.value = '';
+    this.placeholder = 'Type here...';
     this.buttonLabel = 'Find';
     this.regExp = new RegExp(/([^\s])/); //empty value
     this.isValidValue = false;

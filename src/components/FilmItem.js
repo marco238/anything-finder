@@ -31,10 +31,6 @@ class FilmItem extends LitElement {
     };
   }
 
-  constructor() {
-    super();
-  }
-
   render() {
     return html`
       <img src=${this.checkPoster(this.film.Poster)} alt="film poster">
