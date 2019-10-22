@@ -22,7 +22,7 @@ npm run test
 npm run lint
 ```
 
-## Transpile with Babel into /lib
+## Transpile with Babel inside /lib
 ```bash
 npm run build
 ```
