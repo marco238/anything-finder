@@ -6,10 +6,12 @@ install:
   - npm ci
 script:
   - npm run test
-  - npm run build
+  - npm run bundle
+  - npm run deploy
 deploy:
   provider: pages
   skip-cleanup: true
   ithub-token: $GITHUB_TOKEN
+  local_dir: dist
   on:
     branch: master
